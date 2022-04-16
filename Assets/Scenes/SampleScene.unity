@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 59082493}
-  - component: {fileID: 59082492}
+  - component: {fileID: 59082494}
   m_Layer: 0
   m_Name: DungeonGenerator
   m_TagString: Untagged
@@ -140,27 +140,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &59082492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 59082491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 580487b7c083cb84a9a6796d8cdd008d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  floorPrefab: {fileID: 9124939685701441553, guid: 695beeea8851b8c488485e3a9ba44e6c, type: 3}
-  RoomSpawnChance: 20
-  RoomWidth: 5
-  RoomHeight: 5
-  MaxHorizontalRoomCount: 3
-  MaxVerticalRoomCount: 3
-  RoomDistance: 1
-  CorridorWidth: 1
-  MaxSubChamberDetours: 2
 --- !u!4 &59082493
 Transform:
   m_ObjectHideFlags: 0
@@ -174,8 +153,34 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &59082494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59082491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35609b2dfe49994c947fce03e237cb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorPrefab: {fileID: 9124939685701441553, guid: 695beeea8851b8c488485e3a9ba44e6c, type: 3}
+  corridorPrefab: {fileID: 721256419556243630, guid: 44a6932bad594eb47b5d39a613f04f47, type: 3}
+  doorwayPrefab: {fileID: 1281074182591737979, guid: d9105323337ba984c9755a2dd81b8938, type: 3}
+  moveRangePrefab: {fileID: 7103552230838746723, guid: 44bb97e0b909a4d43ac6d4d21340f1e9, type: 3}
+  testUnit: {fileID: 2195964524378465406, guid: bfbb74f00d1cc434ca673b6b27a8a6e8, type: 3}
+  RoomSpawnChance: 10
+  SubRoomIterations: 3
+  RoomWidth: 7
+  RoomHeight: 5
+  MaxHorizontalRoomOffset: 4
+  MaxVerticalRoomOffset: 10
+  RoomDistance: 3
+  MaxSubChamberDetours: 10
+  MaxAttempts: 20
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,4 +264,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1912179325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1912179327}
+  - component: {fileID: 1912179326}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1912179326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912179325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a86d5eecf3443f49a67a97f960416f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorPrefab: {fileID: 9050383605520119233, guid: e955fa8c0d4568b43945757dd5e91a64, type: 3}
+  selectedUnit: {fileID: 0}
+--- !u!4 &1912179327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912179325}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
