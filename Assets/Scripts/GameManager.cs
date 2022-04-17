@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        Cursor.lockState = CursorLockMode.Confined;
         instance = this;
         dungeonGenerator = FindObjectOfType<DungeonGeneratorV2>();
         cursor = Instantiate(cursorPrefab, Vector3.zero, Quaternion.identity);

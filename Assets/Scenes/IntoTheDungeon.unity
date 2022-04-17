@@ -172,12 +172,12 @@ MonoBehaviour:
   doorwayPrefab: {fileID: 1281074182591737979, guid: d9105323337ba984c9755a2dd81b8938, type: 3}
   moveRangePrefab: {fileID: 7103552230838746723, guid: 44bb97e0b909a4d43ac6d4d21340f1e9, type: 3}
   testUnit: {fileID: 2195964524378465406, guid: bfbb74f00d1cc434ca673b6b27a8a6e8, type: 3}
-  RoomSpawnChance: 20
+  RoomSpawnChance: 15
   SubRoomIterations: 2
   RoomWidth: 7
   RoomHeight: 5
-  MaxHorizontalRoomOffset: 1
-  MaxVerticalRoomOffset: 3
+  MaxHorizontalRoomOffset: 4
+  MaxVerticalRoomOffset: 6
   RoomDistance: 2
   MaxSubChamberDetours: 10
   MaxAttempts: 20

@@ -24,6 +24,9 @@ public class Navigator : MonoBehaviour, ISelectable
         {
             if (transform.position != Vector2IntToVector3(path[0]))
             {
+                float targetAngle = Mathf.Atan2(transform.position.x - path[0].x, transform.position.y - path[0].y);
+                targetAngle *= Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0, targetAngle - 180, 0);
                 transform.position = Vector3.MoveTowards(transform.position, Vector2IntToVector3(path[0]), moveSpeed * Time.deltaTime);
             }
             else
@@ -35,6 +38,7 @@ public class Navigator : MonoBehaviour, ISelectable
     public void OnSelected()
     {
         GameManager.instance.selectedUnit = this;
+        Debug.Log("Selected: " + this.name);
     }
 
     public void SetDestination(Vector2Int target)
