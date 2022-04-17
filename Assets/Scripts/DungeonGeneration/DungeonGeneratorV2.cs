@@ -9,7 +9,7 @@ public class DungeonGeneratorV2 : MonoBehaviour
     public GameObject corridorPrefab;
     public GameObject doorwayPrefab;
     public GameObject moveRangePrefab;
-    //public GameObject testUnit;
+    public GameObject testUnit;
 
     [Header("Settings")]
     [Range(0, 100)]
@@ -41,7 +41,7 @@ public class DungeonGeneratorV2 : MonoBehaviour
         dungeonParent = new GameObject("Dungeon");
         GenerateDungeon();
     }
-    private void GenerateDungeon()
+    public void GenerateDungeon()
     {
         bool chained = false;
         int attempts = 0;
@@ -142,8 +142,9 @@ public class DungeonGeneratorV2 : MonoBehaviour
             if(pair.Value == entryChamber)
             {
                 Vector2Int position = new Vector2Int(entryChamber.RelativeRoomPosition.x * (RoomWidth + RoomDistance) + Mathf.RoundToInt(RoomWidth / 2), entryChamber.RelativeRoomPosition.y * (RoomHeight + RoomDistance) - 1);
-                Instantiate(doorwayPrefab, new Vector3(position.x, position.y, 0), Quaternion.identity, dungeonParent.transform);
-                //Instantiate(testUnit, new Vector3(position.x, position.y, 0), Quaternion.identity);
+                GameObject door = Instantiate(doorwayPrefab, new Vector3(position.x, position.y, 0), Quaternion.identity, dungeonParent.transform);
+                GameObject unit = Instantiate(testUnit, new Vector3(position.x, position.y, 0), Quaternion.identity);
+                door.GetComponent<Tile>().occupyingUnit = unit.GetComponent<Navigator>();
                 nodes.Add(position, new Node(position, null, 0, 0));
             }
             if (pair.Value == exitChamber)

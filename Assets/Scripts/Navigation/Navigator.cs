@@ -39,6 +39,8 @@ public class Navigator : MonoBehaviour, ISelectable
 
     public void SetDestination(Vector2Int target)
     {
+        if (path.Count > 0)
+            return;
         Vector2Int currentPosition = new(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
         path = aStar.FindPathToTarget(currentPosition, target);
     }
