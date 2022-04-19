@@ -25,13 +25,19 @@ public class GameManager : MonoBehaviour
         cursor.transform.position = new Vector3(roundedPosition.x, roundedPosition.y, 0);
         if (Input.GetMouseButtonDown(0))
         {
-            Ray screenRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if(Physics.Raycast(screenRay, out RaycastHit hit))
+            if (selectedUnit == null)
             {
-                Debug.Log(hit.transform.name);
-                Tile hitTile = hit.transform.GetComponent<Tile>();
-                hitTile?.occupyingUnit?.OnSelected();
+                if (dungeonGenerator.nodes.ContainsKey(roundedPosition))
+                {
+                    GameObject obj = dungeonGenerator.nodes[roundedPosition].occupyingElement;
+                    selectedUnit = obj?.GetComponent<Navigator>();
+                    selectedUnit?.OnSelected();
+
+                }
+                return;
             }
+            selectedUnit.SetDestination(roundedPosition);
+            selectedUnit = null;
         }
     }
 }

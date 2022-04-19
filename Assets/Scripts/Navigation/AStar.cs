@@ -34,6 +34,7 @@ public class AStar
                     current = current.Parent;
                 }
                 result.Reverse();
+                Debug.Log("Returned result!");
                 return result;
             }
             List<Node> neighbours = GetNeighbours(current);
@@ -56,7 +57,7 @@ public class AStar
                 }
             }
         }
-
+        Debug.Log("Failed to return result!");
         return null;
     }
     private bool IsTraversable(Node nodeToEvaluate)

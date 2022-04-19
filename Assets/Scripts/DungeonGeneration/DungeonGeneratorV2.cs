@@ -10,6 +10,8 @@ public class DungeonGeneratorV2 : MonoBehaviour
     public GameObject doorwayPrefab;
     public GameObject moveRangePrefab;
     public GameObject testUnit;
+    public GameObject wallSidePrefab;
+    public GameObject wallTopPrefab;
 
     [Header("Settings")]
     [Range(0, 100)]
@@ -63,6 +65,7 @@ public class DungeonGeneratorV2 : MonoBehaviour
         BuildChamberTiles();
         CreateCorridors();
         BuildTiles();
+        BuildWalls();
     }
 
 
@@ -144,8 +147,8 @@ public class DungeonGeneratorV2 : MonoBehaviour
                 Vector2Int position = new Vector2Int(entryChamber.RelativeRoomPosition.x * (RoomWidth + RoomDistance) + Mathf.RoundToInt(RoomWidth / 2), entryChamber.RelativeRoomPosition.y * (RoomHeight + RoomDistance) - 1);
                 GameObject door = Instantiate(doorwayPrefab, new Vector3(position.x, position.y, 0), Quaternion.identity, dungeonParent.transform);
                 GameObject unit = Instantiate(testUnit, new Vector3(position.x, position.y, 0), Quaternion.identity);
-                door.GetComponent<Tile>().occupyingUnit = unit.GetComponent<Navigator>();
                 nodes.Add(position, new Node(position, null, 0, 0));
+                nodes[position].occupyingElement = unit;
             }
             if (pair.Value == exitChamber)
             {
@@ -255,6 +258,81 @@ public class DungeonGeneratorV2 : MonoBehaviour
             GameObject rangeTile = Instantiate(moveRangePrefab, new Vector3(pair.Key.x, pair.Key.y, 0), Quaternion.identity, moveRangeTiles.transform);
             rangeTile.SetActive(false);
         }
+    }
+    private void BuildWalls()
+    {
+        List<Vector2Int> sideWalls = new();
+        List<Vector2Int> topWalls = new();
+        GameObject walls = new GameObject("Walls");
+        walls.transform.SetParent(dungeonParent.transform);
+        foreach (KeyValuePair<Vector2Int, Node> pair in nodes)
+        {
+            for(int x = -1; x<= 1; x++)
+            {
+                for(int y = -1; y <= 1; y++)
+                {
+                    Vector2Int newWallPosition = pair.Key + new Vector2Int(x, y);
+                    {
+                        if (!nodes.ContainsKey(newWallPosition))
+                        {
+                            if (nodes.ContainsKey(newWallPosition + Vector2Int.up) && !topWalls.Contains(newWallPosition))
+                            {
+                                topWalls.Add(newWallPosition);
+                                if (!nodes.ContainsKey(newWallPosition + Vector2Int.right) && !nodes.ContainsKey(newWallPosition + Vector2Int.left) && !sideWalls.Contains(newWallPosition - Vector2Int.up))
+                                {
+                                    sideWalls.Add(newWallPosition - Vector2Int.up);
+                                }
+                            }else if (nodes.ContainsKey(newWallPosition - Vector2Int.up) && !sideWalls.Contains(newWallPosition))
+                            {
+                                topWalls.Add(newWallPosition + Vector2Int.up);
+                                sideWalls.Add(newWallPosition);
+                            }
+                            else if(!topWalls.Contains(newWallPosition))
+                            {
+                                topWalls.Add(newWallPosition);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        foreach(Vector2Int t in topWalls)
+        {
+            Instantiate(wallTopPrefab, new Vector3(t.x, t.y, 0), Quaternion.identity, walls.transform);
+            Vector2Int below = t - Vector2Int.up;
+            if (sideWalls.Contains(below))
+            {
+                Vector2Int leftSide = t + Vector2Int.left;
+                Vector2Int rightSide = t + Vector2Int.right;
+                if (!nodes.ContainsKey(leftSide) && !sideWalls.Contains(leftSide) && !topWalls.Contains(leftSide))
+                {
+                    Instantiate(wallTopPrefab, new Vector3(leftSide.x, leftSide.y, 0), Quaternion.identity, walls.transform);
+                }
+                if (!nodes.ContainsKey(rightSide) && !sideWalls.Contains(rightSide) && !topWalls.Contains(rightSide))
+                {
+                    Instantiate(wallTopPrefab, new Vector3(rightSide.x, rightSide.y, 0), Quaternion.identity, walls.transform);
+                }
+            }
+        }
+        foreach (Vector2Int s in sideWalls)
+        {
+            Instantiate(wallSidePrefab, new Vector3(s.x, s.y, 0), Quaternion.identity, walls.transform);
+            Vector2Int above = s + Vector2Int.up;
+            if (topWalls.Contains(above))
+            {
+                Vector2Int leftSide = s + Vector2Int.left;
+                Vector2Int rightSide = s + Vector2Int.right;
+                if (!nodes.ContainsKey(leftSide) && !sideWalls.Contains(leftSide) && !topWalls.Contains(leftSide))
+                {
+                    Instantiate(wallSidePrefab, new Vector3(leftSide.x, leftSide.y, 0), Quaternion.identity, walls.transform);
+                }
+                if (!nodes.ContainsKey(rightSide) && !sideWalls.Contains(rightSide) && !topWalls.Contains(rightSide))
+                {
+                    Instantiate(wallSidePrefab, new Vector3(rightSide.x, rightSide.y, 0), Quaternion.identity, walls.transform);
+                }
+            }
+        }
+
     }
 
     private int GetDistance(Vector2Int from, Vector2Int to)

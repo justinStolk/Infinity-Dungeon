@@ -8,6 +8,7 @@ public class Node
     public float GCost, HCost;
     public float FCost { get { return GCost + HCost; } }
     public Node Parent;
+    public GameObject occupyingElement = null;
 
     public Node(Vector2Int position, Node parent, float gCost, float hCost)
     {

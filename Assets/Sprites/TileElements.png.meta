@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 758c4201d34fc154c93e765eebe5cf4c
+guid: f792bde8efaaae6458c2656bbba9d821
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -36,14 +36,14 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
+  spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -66,7 +66,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 2
@@ -116,70 +116,49 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: InfinityDungeon_FloorTiles_0
+      name: TileElements_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
+        y: 32
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fa0109cfc416ac42b7a18ae585a6984
-      internalID: 213477255
+      spriteID: e18c2482590e3f847a66fa6d54111d82
+      internalID: 1438960341
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: InfinityDungeon_FloorTiles_1
+      name: TileElements_1
       rect:
         serializedVersion: 2
         x: 32
-        y: 128
+        y: 32
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8db480b4a177db41bc92e465d291009
-      internalID: -1288505517
+      spriteID: bf9d8b9a9006c3d42a0b9f91d15e68ff
+      internalID: 2139097457
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: InfinityDungeon_FloorTiles_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dee7c452fcb3191478d272ef20e03601
-      internalID: 321355511
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: InfinityDungeon_FloorTiles_5
+      name: TileElements_2
       rect:
         serializedVersion: 2
         x: 0
@@ -187,20 +166,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bd13ecda4089ba429e60c477f21f8db
-      internalID: -77512590
+      spriteID: 3c7ca9625cbf1214ba988521044dccbf
+      internalID: 1022077085
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: InfinityDungeon_FloorTiles_6
+      name: TileElements_3
       rect:
         serializedVersion: 2
         x: 32
@@ -208,14 +187,14 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 650de8fcc1439764a92d5ef272423839
-      internalID: -1967074585
+      spriteID: 9b1a06a87ef622d47b0b9c4e623686ce
+      internalID: -204331921
       vertices: []
       indices: 
       edges: []
@@ -231,13 +210,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      InfinityDungeon_FloorTiles_2: 321355511
-      InfinityDungeon_FloorTiles_4: -92026669
-      InfinityDungeon_FloorTiles_1: -1288505517
-      InfinityDungeon_FloorTiles_6: -1967074585
-      InfinityDungeon_FloorTiles_3: -661815351
-      InfinityDungeon_FloorTiles_0: 213477255
-      InfinityDungeon_FloorTiles_5: -77512590
+      TileElements_1: 2139097457
+      TileElements_0: 1438960341
+      TileElements_2: 1022077085
+      TileElements_3: -204331921
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
