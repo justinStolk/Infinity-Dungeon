@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class AStar
 {
-    private Dictionary<Vector2Int, Node> nodes;
+    private static Dictionary<Vector2Int, Node> nodes;
     private bool canMoveDiagonally;
-    public AStar(ref Dictionary<Vector2Int, Node> nodeDictionary, bool CanMoveDiagonally)
+    public AStar(Dictionary<Vector2Int, Node> nodeDictionary, bool CanMoveDiagonally)
     {
         nodes = nodeDictionary;
         canMoveDiagonally = CanMoveDiagonally;
@@ -19,17 +19,21 @@ public class AStar
         List<Node> closed = new();
 
         Node startNode = nodes[startPosition];
+        startNode.HCost = GetDistance(startNode, nodes[targetPosition]);
         open.Add(startNode);
 
         while (open.Count > 0)
         {
             Node current = open.OrderBy((x) => x.FCost).First();
+            open.Remove(current);
+            closed.Add(current);
             if (current.Position == targetPosition)
             {
                 List<Vector2Int> result = new();
                 result.Add(current.Position);
-                while (current.Position != targetPosition)
+                while (current.Position != startPosition)
                 {
+                    Debug.Log("Adding parent position to path");
                     result.Add(current.Parent.Position);
                     current = current.Parent;
                 }
@@ -60,9 +64,37 @@ public class AStar
         Debug.Log("Failed to return result!");
         return null;
     }
+    public List<Vector2Int> GetNodesInRange(Vector2Int startPosition, int range)
+    {
+        List<Vector2Int> result = new();
+        List<Node> open = new();
+        List<Node> closed = new();
+        open.Add(nodes[startPosition]);
+        while(open.Count > 0)
+        {
+            Node current = open[0]; 
+            closed.Add(current);
+            open.Remove(current);
+            List<Node> neighbours = GetNeighbours(current);
+            foreach(Node neighbour in neighbours)
+            {
+                if(GetDistance(nodes[startPosition], neighbour) > range * 10 || closed.Contains(neighbour) || open.Contains(neighbour))
+                {
+                    continue;
+                }
+                result.Add(neighbour.Position);
+                open.Add(neighbour);
+            }
+
+        }
+
+        return result;
+    }
+
+
     private bool IsTraversable(Node nodeToEvaluate)
     {
-        return true;
+        return nodeToEvaluate.occupyingElement == null;
     }
 
     private List<Node> GetNeighbours(Node currentNode)
@@ -84,8 +116,8 @@ public class AStar
 
     private int GetDistance(Node from, Node to)
     {
-        int distanceX = from.Position.x - to.Position.x;
-        int distanceY = from.Position.y - to.Position.y;
+        int distanceX = Mathf.Abs(from.Position.x - to.Position.x);
+        int distanceY = Mathf.Abs(from.Position.y - to.Position.y);
         if (canMoveDiagonally)
         {
             if(distanceX > distanceY)

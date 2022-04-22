@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 758c4201d34fc154c93e765eebe5cf4c
+guid: 2c3ec6ba62f1b3247a87743fd46240c9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -36,18 +36,18 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
+  spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 33
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -66,7 +66,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 2
@@ -116,85 +116,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: InfinityDungeon_FloorTiles_0
+      name: CharacterSprites_Jort_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 33
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4
+        y: 135
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fa0109cfc416ac42b7a18ae585a6984
-      internalID: 213477255
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: InfinityDungeon_FloorTiles_1
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 0
-        width: 33
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b8db480b4a177db41bc92e465d291009
-      internalID: -1288505517
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: InfinityDungeon_FloorTiles_2
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 0
-        width: 33
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dee7c452fcb3191478d272ef20e03601
-      internalID: 321355511
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: InfinityDungeon_FloorTiles_3
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 0
-        width: 33
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 17003e8b596d7eb43a4a8bb2c4b67fa6
-      internalID: 1553924323
+      spriteID: 6440c6f1f0754e747aea9ba5414ef68a
+      internalID: -240581450
       vertices: []
       indices: 
       edges: []
@@ -210,10 +147,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      InfinityDungeon_FloorTiles_2: 321355511
-      InfinityDungeon_FloorTiles_1: -1288505517
-      InfinityDungeon_FloorTiles_3: 1553924323
-      InfinityDungeon_FloorTiles_0: 213477255
+      CharacterSprites_Jort_0: -240581450
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
