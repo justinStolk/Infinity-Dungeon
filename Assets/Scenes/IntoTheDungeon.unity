@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 59082493}
   - component: {fileID: 59082494}
+  - component: {fileID: 59082495}
   m_Layer: 0
   m_Name: DungeonGenerator
   m_TagString: Untagged
@@ -167,6 +168,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b35609b2dfe49994c947fce03e237cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 94c6b3cd0141aaf44b95da42a247750c, type: 2}
+--- !u!114 &59082495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59082491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79f8380a715efcf46b53d2a76018d9b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   floorPrefab: {fileID: 9124939685701441553, guid: 695beeea8851b8c488485e3a9ba44e6c, type: 3}
   corridorPrefab: {fileID: 721256419556243630, guid: 44a6932bad594eb47b5d39a613f04f47, type: 3}
   doorwayPrefab: {fileID: 1281074182591737979, guid: d9105323337ba984c9755a2dd81b8938, type: 3}
@@ -175,7 +189,6 @@ MonoBehaviour:
   testUnit: {fileID: 2195964524378465406, guid: bfbb74f00d1cc434ca673b6b27a8a6e8, type: 3}
   wallSidePrefab: {fileID: 9124939685701441553, guid: ace0e810b00a0b349808a64bdba111f7, type: 3}
   wallTopPrefab: {fileID: 9124939685701441553, guid: 9c35a40d6e13a2c49aa7c99e1e3ae48a, type: 3}
-  settings: {fileID: 11400000, guid: 94c6b3cd0141aaf44b95da42a247750c, type: 2}
 --- !u!1 &343405221
 GameObject:
   m_ObjectHideFlags: 0

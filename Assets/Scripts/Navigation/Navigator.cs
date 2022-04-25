@@ -11,14 +11,14 @@ public class Navigator : MonoBehaviour, ISelectable
 
     private AStar aStar;
     private List<Vector2Int> path = new();
-    private DungeonGeneratorV2 generatorV2;
+    private DungeonBuilder builder;
 
     private List<Vector2Int> rangeTilePositions;
     // Start is called before the first frame update
     void Start()
     {
-        generatorV2 = FindObjectOfType<DungeonGeneratorV2>();
-        aStar = new AStar(generatorV2.nodes, false);    
+        builder = FindObjectOfType<DungeonBuilder>();
+        aStar = new AStar(builder.data.nodes, false);    
         
     }
 
@@ -47,7 +47,7 @@ public class Navigator : MonoBehaviour, ISelectable
         rangeTilePositions = aStar.GetNodesInRange(Vector3ToVector2Int(transform.position), moveRange);
         foreach(Vector2Int v in rangeTilePositions)
         {
-            generatorV2.moveRangeTiles[v].SetActive(true);
+            builder.data.moveRangeTiles[v].SetActive(true);
         }
         Debug.Log("Selected: " + this.name);
     }
@@ -56,14 +56,14 @@ public class Navigator : MonoBehaviour, ISelectable
     {
         foreach(Vector2Int v in rangeTilePositions)
         {
-            generatorV2.moveRangeTiles[v].SetActive(false);
+            builder.data.moveRangeTiles[v].SetActive(false);
         }
         if (path.Count > 0 || !rangeTilePositions.Contains(target))
             return;
         Vector2Int currentPosition = new(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
         path = aStar.FindPathToTarget(currentPosition, target);
-        generatorV2.nodes[currentPosition].occupyingElement = null;
-        generatorV2.nodes[target].occupyingElement = this.gameObject;
+        builder.data.nodes[currentPosition].occupyingElement = null;
+        builder.data.nodes[target].occupyingElement = this.gameObject;
         FreezeUnit();
     }
     public void FreezeUnit()

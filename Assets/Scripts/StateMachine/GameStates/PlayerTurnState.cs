@@ -11,7 +11,7 @@ public class PlayerTurnState : BaseState
 
     private Navigator selectedUnit;
     private GameObject cursor;
-    private DungeonGeneratorV2 dungeonGenerator;
+    private DungeonBuilder dungeonBuilder;
     private List<Navigator> playerCharacters = new();
     private Camera gameCam;
     private Vector2Int roundedMousePosition;
@@ -19,7 +19,7 @@ public class PlayerTurnState : BaseState
     private void Start()
     {
         gameCam = Camera.main;
-        dungeonGenerator = FindObjectOfType<DungeonGeneratorV2>();
+        dungeonBuilder = FindObjectOfType<DungeonBuilder>();
         cursor = Instantiate(cursorPrefab, Vector3.zero, Quaternion.identity);
     }
     public override void OnStateEnter()
@@ -47,7 +47,7 @@ public class PlayerTurnState : BaseState
 
     private void HandleCamMovement()
     {
-        if (dungeonGenerator.nodes.ContainsKey(roundedMousePosition) && Vector3.Distance(new Vector3(roundedMousePosition.x, roundedMousePosition.y, transform.position.z), gameCam.transform.position) > maxCamNodeDistance)
+        if (dungeonBuilder.data.nodes.ContainsKey(roundedMousePosition) && Vector3.Distance(new Vector3(roundedMousePosition.x, roundedMousePosition.y, transform.position.z), gameCam.transform.position) > maxCamNodeDistance)
         {
             gameCam.transform.position = Vector3.MoveTowards(gameCam.transform.position, new Vector3(roundedMousePosition.x, roundedMousePosition.y, gameCam.transform.position.z), camMoveSpeed * Time.deltaTime);
         }
@@ -59,9 +59,9 @@ public class PlayerTurnState : BaseState
         {
             if (selectedUnit == null)
             {
-                if (dungeonGenerator.nodes.ContainsKey(roundedMousePosition))
+                if (dungeonBuilder.data.nodes.ContainsKey(roundedMousePosition))
                 {
-                    GameObject obj = dungeonGenerator.nodes[roundedMousePosition].occupyingElement;
+                    GameObject obj = dungeonBuilder.data.nodes[roundedMousePosition].occupyingElement;
                     selectedUnit = obj?.GetComponent<Navigator>();
                     selectedUnit?.OnSelected();
 
