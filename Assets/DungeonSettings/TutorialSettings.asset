@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 670229bbebc52f049a8345f7046c91e5, type: 3}
-  m_Name: EntryFloors
+  m_Name: TutorialSettings
   m_EditorClassIdentifier: 
-  RoomSpawnChance: 10
-  SubRoomIterations: 2
+  RoomSpawnChance: 20
+  SubRoomIterations: 1
   MinimumRoomWidth: 5
-  MaximumRoomWidth: 10
-  MinimumRoomHeight: 6
-  MaximumRoomHeight: 8
-  MaxHorizontalRoomOffset: 2
-  MaxVerticalRoomOffset: 4
-  RoomDistance: 5
-  CorridorWidth: 4
-  MaxSubChamberDetours: 5
+  MaximumRoomWidth: 7
+  MinimumRoomHeight: 5
+  MaximumRoomHeight: 5
+  MaxHorizontalRoomOffset: 1
+  MaxVerticalRoomOffset: 2
+  RoomDistance: 4
+  CorridorWidth: 3
+  MaxSubChamberDetours: 3
   MaxAttempts: 20
-  seed: 0
+  seed: 2

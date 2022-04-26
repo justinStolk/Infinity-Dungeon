@@ -9,14 +9,15 @@ public class DungeonSettings : ScriptableObject
     public float RoomSpawnChance = 50f;
     [Min(1)]
     public int SubRoomIterations = 2;
-    public int RoomWidth, RoomHeight;
+    public int MinimumRoomWidth, MaximumRoomWidth, MinimumRoomHeight, MaximumRoomHeight;
     [Min(1)]
     public int MaxHorizontalRoomOffset, MaxVerticalRoomOffset = 1;
     public int RoomDistance = 3;
-    //public int CorridorWidth = 3;
+    public int CorridorWidth = 3;
     [Min(0)]
     public int MaxSubChamberDetours = 2;
     public int MaxAttempts = 5;
 
+    public int seed;
 
 }

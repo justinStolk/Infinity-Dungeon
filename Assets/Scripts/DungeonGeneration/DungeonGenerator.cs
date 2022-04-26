@@ -24,7 +24,7 @@ public class DungeonGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GenerateDungeon();
+        //GenerateDungeon();
     }
 
     private void GenerateDungeon()
@@ -39,15 +39,15 @@ public class DungeonGenerator : MonoBehaviour
 
     private void CreateCoreRooms()
     {
-        Chamber entryChamber = new Chamber(new(0, 0));
-        chambers.Add(entryChamber.RelativeRoomPosition, entryChamber);
+        //Chamber entryChamber = new Chamber(new(0, 0));
+        //chambers.Add(entryChamber.RelativeRoomPosition, entryChamber);
         //Chamber centralChamber = new Chamber(new(0, 2));
         //chambers.Add(centralChamber.RelativeRoomPosition, centralChamber);
-        Chamber exitChamber = new Chamber(new(0, MaxVerticalRoomCount));     
-        chambers.Add(exitChamber.RelativeRoomPosition, exitChamber);
-        unevaluatedChambers.Add(entryChamber);
-        //unevaluatedChambers.Add(centralChamber);
-        unevaluatedChambers.Add(exitChamber);
+       // Chamber exitChamber = new Chamber(new(0, MaxVerticalRoomCount));     
+       // chambers.Add(exitChamber.RelativeRoomPosition, exitChamber);
+        //unevaluatedChambers.Add(entryChamber);
+       //unevaluatedChambers.Add(centralChamber);
+       // unevaluatedChambers.Add(exitChamber);
     }
 
     private void CreateRooms()
@@ -101,9 +101,9 @@ public class DungeonGenerator : MonoBehaviour
                 }
                 if (Random.Range(0, 100) <= RoomSpawnChance && !chambers.ContainsKey(new Vector2Int(relativeStart.x + x, relativeStart.y + y)))
                 {
-                    Chamber newNeighbour = new Chamber(new Vector2Int(startChamber.RelativeRoomPosition.x + x, startChamber.RelativeRoomPosition.y + y));
-                    result.Add(newNeighbour);
-                    Debug.Log("Created new Chamber at Relative Pos: " + newNeighbour.RelativeRoomPosition);
+                    //Chamber newNeighbour = new Chamber(new Vector2Int(startChamber.RelativeRoomPosition.x + x, startChamber.RelativeRoomPosition.y + y));
+                   // result.Add(newNeighbour);
+                    //Debug.Log("Created new Chamber at Relative Pos: " + newNeighbour.RelativeRoomPosition);
                 }
             }
         }
