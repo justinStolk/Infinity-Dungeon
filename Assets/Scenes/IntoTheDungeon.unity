@@ -187,7 +187,7 @@ MonoBehaviour:
   doorwayPrefab: {fileID: 1281074182591737979, guid: d9105323337ba984c9755a2dd81b8938, type: 3}
   moveRangePrefab: {fileID: 7103552230838746723, guid: 44bb97e0b909a4d43ac6d4d21340f1e9, type: 3}
   attackRangePrefab: {fileID: 7103552230838746723, guid: 725044e0b2a292d43abc3d485565328d, type: 3}
-  testUnit: {fileID: 2195964524378465406, guid: bfbb74f00d1cc434ca673b6b27a8a6e8, type: 3}
+  testUnit: {fileID: 2195964524378465406, guid: 92afecadab054db4197587a19ddb8d7a, type: 3}
   wallSidePrefab: {fileID: 9124939685701441553, guid: ace0e810b00a0b349808a64bdba111f7, type: 3}
   wallTopPrefab: {fileID: 9124939685701441553, guid: 9c35a40d6e13a2c49aa7c99e1e3ae48a, type: 3}
 --- !u!114 &59082496
@@ -778,7 +778,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1912179326
 MonoBehaviour:
   m_ObjectHideFlags: 0

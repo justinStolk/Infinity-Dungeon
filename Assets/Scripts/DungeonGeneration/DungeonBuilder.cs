@@ -95,6 +95,11 @@ public class DungeonBuilder : MonoBehaviour
         foreach(Vector2Int d in data.doors)
         {
             Instantiate(doorwayPrefab, new Vector3(d.x, d.y, 0), Quaternion.identity, walls.transform);
+            if(d.y < 0)
+            {
+                GameObject unit = Instantiate(testUnit, new Vector3(d.x, d.y, 0), Quaternion.identity);
+                data.nodes[d].occupyingElement = unit; 
+            }
         }
         foreach (Vector2Int t in topWalls)
         {

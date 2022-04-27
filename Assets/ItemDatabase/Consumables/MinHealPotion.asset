@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a4fa0f499c2ba40abc399e65b841e9, type: 3}
+  m_Name: MinHealPotion
+  m_EditorClassIdentifier: 
+  name: Minor Potion of Healing
+  icon: {fileID: 1022077085, guid: f792bde8efaaae6458c2656bbba9d821, type: 3}
+  consumableEffects:
+  - {fileID: 0}

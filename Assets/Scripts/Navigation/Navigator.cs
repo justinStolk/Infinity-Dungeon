@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Navigator : MonoBehaviour, ISelectable
 {
-    public float moveSpeed;
+    public static float moveSpeed = 5;
     public int moveRange = 5;
     public bool hasMoved { get; private set; }
 
@@ -64,7 +64,7 @@ public class Navigator : MonoBehaviour, ISelectable
         path = aStar.FindPathToTarget(currentPosition, target);
         builder.data.nodes[currentPosition].occupyingElement = null;
         builder.data.nodes[target].occupyingElement = this.gameObject;
-        FreezeUnit();
+        //FreezeUnit();
     }
     public void FreezeUnit()
     {

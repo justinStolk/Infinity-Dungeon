@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "new Dungeon Settings", menuName = "Infinity Dungeon:/Dungeon Settings")]
+[CreateAssetMenu(fileName = "new Dungeon Settings", menuName = "Infinity Dungeon/Dungeon Settings")]
 public class DungeonSettings : ScriptableObject
 {
     [Range(0, 100)]
