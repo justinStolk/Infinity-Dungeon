@@ -6,6 +6,8 @@ public class DungeonGeneratorV2 : MonoBehaviour
 {
     [Header("Settings")]
     public DungeonSettings settings;
+
+    [SerializeField] private float SpawnChamberSpawnChance;
     private int roomStepLimit { get { return GetDistance(entryChamber.RelativeRoomPosition, exitRoomRelativePosition) + settings.MaxSubChamberDetours; } }
     private Chamber entryChamber;
     private Chamber exitChamber;
@@ -96,7 +98,15 @@ public class DungeonGeneratorV2 : MonoBehaviour
                     {
                         Vector2Int roomPosition = new Vector2Int(current.Position.x + roomTarget.x * (roomSize.x + settings.RoomDistance), current.Position.y + roomTarget.y * (roomSize.y + settings.RoomDistance));
                         Vector2Int newDimensions = new Vector2Int(settings.MaximumRoomWidth, settings.MaximumRoomHeight);
-                        Chamber newChamber = new Chamber(roomSize, roomPosition, relativeRoomPos);
+                        Chamber newChamber;
+                        if(Random.Range(0, 100) <= SpawnChamberSpawnChance)
+                        {
+                            newChamber = new SpawnChamber(roomSize, roomPosition, relativeRoomPos);
+                        }
+                        else
+                        {
+                            newChamber = new Chamber(roomSize, roomPosition, relativeRoomPos);
+                        }
                         newChamber.connectedChambers.Add(current);
                         dungeonData.chambers.Add(relativeRoomPos, newChamber);
                         current = newChamber;
@@ -160,7 +170,15 @@ public class DungeonGeneratorV2 : MonoBehaviour
                         {
                             Vector2Int roomPosition = new Vector2Int(pair.Value.Position.x + (roomSize.x + settings.RoomDistance) * direction.x, pair.Value.Position.y + (roomSize.y + settings.RoomDistance) * direction.y);
                             Vector2Int newDimensions = new Vector2Int(settings.MaximumRoomWidth, settings.MaximumRoomHeight);
-                            Chamber subRoom = new Chamber(newDimensions, roomPosition, targetPosition);
+                            Chamber subRoom;
+                            if (Random.Range(0, 100) <= SpawnChamberSpawnChance)
+                            {
+                                subRoom = new SpawnChamber(newDimensions, roomPosition, targetPosition);
+                            }
+                            else
+                            {
+                                subRoom = new Chamber(newDimensions, roomPosition, targetPosition);
+                            }
                             parent.connectedChambers.Add(subRoom);
                             subRooms.Add(subRoom);
                         }

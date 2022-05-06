@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69a4fa0f499c2ba40abc399e65b841e9, type: 3}
-  m_Name: MinHealPotion
+  m_Name: MajorHealPotion
   m_EditorClassIdentifier: 
-  name: Minor Potion of Healing
-  icon: {fileID: 1022077085, guid: f792bde8efaaae6458c2656bbba9d821, type: 3}
+  name: Major Potion of Healing
+  icon: {fileID: 0}
   consumableEffects:
-  - {fileID: 11400000, guid: dcfdb68a653dd4e45ac8e7baa7b191be, type: 2}
+  - {fileID: 11400000, guid: d37983587c0c9904ba176cda34cca8bc, type: 2}
+  - {fileID: 11400000, guid: 42f705fdcdbd33844846dfa40ba64347, type: 2}

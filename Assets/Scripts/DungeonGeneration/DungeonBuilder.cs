@@ -23,6 +23,16 @@ public class DungeonBuilder : MonoBehaviour
         dungeonParent = new GameObject("Dungeon");
         BuildTiles();
         BuildWalls();
+        foreach(KeyValuePair<Vector2Int, Chamber> pair in data.chambers)
+        {
+            if(pair.Value.GetType() == typeof(SpawnChamber))
+            {
+                SpawnChamber spawn = (SpawnChamber)pair.Value;
+                Debug.Log("I found a Spawn Chamber at position: " + pair.Value.Position);
+                GameObject spawner = Resources.Load("Objects/Spawner") as GameObject;
+                Instantiate(spawner, new Vector3(spawn.SpawnerPosition.x, spawn.SpawnerPosition.y, 0), Quaternion.identity);
+            }
+        }
     }
     private void BuildTiles()
     {

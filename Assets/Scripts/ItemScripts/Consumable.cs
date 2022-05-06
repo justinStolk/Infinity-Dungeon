@@ -7,7 +7,12 @@ public class Consumable : Item
 {
     [SerializeField] private ConsumableEffect[] consumableEffects;
 
-    public void UseConsumable()
+    public override void OnItemUsed()
+    {
+        UseConsumable();
+    }
+
+    private void UseConsumable()
     {
         foreach(ConsumableEffect effect in consumableEffects)
         {

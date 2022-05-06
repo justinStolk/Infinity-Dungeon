@@ -7,4 +7,9 @@ public class Weapon : Equipment
 {
     public enum WeaponType { Sword, Spear, Axe, Bow, Rod }
     public WeaponType weaponType;
+
+    public override void Equip()
+    {
+        
+    }
 }

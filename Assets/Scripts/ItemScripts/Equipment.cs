@@ -20,4 +20,11 @@ public abstract class Equipment : Item
     public int ResistanceBoost { get { return resistanceBoost; } }
     public int SpeedBoost { get { return speedBoost; } }
     public int LuckBoost { get { return luckBoost; } }
+
+    public override void OnItemUsed()
+    {
+        Equip();
+    }
+    public abstract void Equip();
+
 }

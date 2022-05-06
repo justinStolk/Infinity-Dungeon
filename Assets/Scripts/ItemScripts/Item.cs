@@ -9,4 +9,6 @@ public abstract class Item : ScriptableObject
     [SerializeField] protected new string name;
     [SerializeField] protected Sprite icon;
 
+    public abstract void OnItemUsed();
+
 }
