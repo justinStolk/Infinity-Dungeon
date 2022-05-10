@@ -14,7 +14,7 @@ public class DungeonGeneratorV2 : MonoBehaviour
     private Vector2Int roomSize;
     private Vector2Int exitRoomRelativePosition;
 
-    private DungeonData dungeonData;
+    public DungeonData dungeonData { get; private set; }
 
     // Start is called before the first frame update
     void Start()

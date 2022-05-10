@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 752194173968597625}
   - component: {fileID: 4155632009117888799}
   m_Layer: 0
-  m_Name: TestUnit
+  m_Name: Sarah
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,9 +59,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251883e0ea32b5f43a33ab0c5977a949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Sarah
   level: 1
   currentExperience: 0
+  maxHitPoints: 0
+  hitPoints: 0
   strength: 0
   defense: 0
   magic: 0

@@ -5,6 +5,6 @@ using UnityEngine;
 
 public abstract class ConsumableEffect : ScriptableObject
 {
-    public abstract void OnConsumableUse();
+    public abstract void OnConsumableUse(Unit target);
 
 }

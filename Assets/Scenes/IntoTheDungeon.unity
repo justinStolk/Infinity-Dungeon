@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 59082493}
   - component: {fileID: 59082494}
-  - component: {fileID: 59082496}
   - component: {fileID: 59082495}
   m_Layer: 0
   m_Name: DungeonGenerator
@@ -169,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b35609b2dfe49994c947fce03e237cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings: {fileID: 11400000, guid: 94c6b3cd0141aaf44b95da42a247750c, type: 2}
+  settings: {fileID: 11400000, guid: 2c0d49c1e8ae8ea43afb80631c998c41, type: 2}
   SpawnChamberSpawnChance: 20
 --- !u!114 &59082495
 MonoBehaviour:
@@ -191,21 +190,6 @@ MonoBehaviour:
   testUnit: {fileID: 2195964524378465406, guid: 92afecadab054db4197587a19ddb8d7a, type: 3}
   wallSidePrefab: {fileID: 9124939685701441553, guid: ace0e810b00a0b349808a64bdba111f7, type: 3}
   wallTopPrefab: {fileID: 9124939685701441553, guid: 9c35a40d6e13a2c49aa7c99e1e3ae48a, type: 3}
---- !u!114 &59082496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 59082491}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91f0adbaec7601f4b80596c6f3ce57dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  settings: {fileID: 11400000, guid: 94c6b3cd0141aaf44b95da42a247750c, type: 2}
-  Policy: 2
-  policyRetries: 0
 --- !u!1 &343405221
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,8 +755,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1912179327}
   - component: {fileID: 1912179326}
+  - component: {fileID: 1912179333}
+  - component: {fileID: 1912179332}
   - component: {fileID: 1912179329}
+  - component: {fileID: 1912179331}
   - component: {fileID: 1912179328}
+  - component: {fileID: 1912179330}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -834,3 +822,53 @@ MonoBehaviour:
   cursorPrefab: {fileID: 9050383605520119233, guid: e955fa8c0d4568b43945757dd5e91a64, type: 3}
   maxCamNodeDistance: 8
   camMoveSpeed: 8
+--- !u!114 &1912179330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912179325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ba6de8602ff89d429ecf72f0fb0cfe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1912179331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912179325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ab1d5acbbb02944a3461c39cbb8c22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1912179332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912179325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4dd6ac02b7ffe438daa1b9f3b15959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1912179333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912179325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4e535e3a0dc1642bca4dd67c5ce94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dungeonGenerator: {fileID: 59082494}
+  dungeonBuilder: {fileID: 59082495}

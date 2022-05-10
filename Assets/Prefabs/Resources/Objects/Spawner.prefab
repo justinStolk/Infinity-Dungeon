@@ -45,6 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897745c330dde6144b679e50666e5947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnChance: 50
+  maxHitPoints: 10
+  hitPoints: 10
+  defense: 1
+  resistance: 3
 --- !u!1 &889819271798859688
 GameObject:
   m_ObjectHideFlags: 0

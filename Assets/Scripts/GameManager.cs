@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Confined;
         instance = this;
-        stateMachine = new FSM(typeof(PlayerTurnState), GetComponents<BaseState>());
+        stateMachine = new FSM(typeof(FloorEntryState), GetComponents<BaseState>());
 
     }
     void Update()

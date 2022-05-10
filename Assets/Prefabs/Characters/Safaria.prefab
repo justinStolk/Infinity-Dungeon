@@ -62,14 +62,22 @@ MonoBehaviour:
   name: Safaria
   level: 1
   currentExperience: 0
-  requiredExperience: 0
-  hitPoints: 0
-  strength: 4
+  maxHitPoints: 14
+  hitPoints: 14
+  strength: 6
   defense: 3
-  magic: 3
+  magic: 6
   resistance: 3
   speed: 5
   luck: 4
+  hitPointGrowthModifier: 0
+  strengthGrowthModifier: 0
+  defenseGrowthModifier: 0
+  magicGrowthModifier: 0
+  resistanceGrowthModifier: 0
+  speedGrowthModifier: 0
+  luckGrowthModifier: 0
+  myClass: {fileID: 11400000, guid: 3c9de7f17880ca445b3ce0ec1b145778, type: 2}
 --- !u!1 &7927932167397420158
 GameObject:
   m_ObjectHideFlags: 0

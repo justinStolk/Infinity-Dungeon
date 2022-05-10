@@ -30,7 +30,8 @@ public class DungeonBuilder : MonoBehaviour
                 SpawnChamber spawn = (SpawnChamber)pair.Value;
                 Debug.Log("I found a Spawn Chamber at position: " + pair.Value.Position);
                 GameObject spawner = Resources.Load("Objects/Spawner") as GameObject;
-                Instantiate(spawner, new Vector3(spawn.SpawnerPosition.x, spawn.SpawnerPosition.y, 0), Quaternion.identity);
+                GameObject spawnedSpawner = Instantiate(spawner, new Vector3(spawn.SpawnerPosition.x, spawn.SpawnerPosition.y, 0), Quaternion.identity);
+                data.nodes[spawn.SpawnerPosition].occupyingElement = spawnedSpawner;
             }
         }
     }

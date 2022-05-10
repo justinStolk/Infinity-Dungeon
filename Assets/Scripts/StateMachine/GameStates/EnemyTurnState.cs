@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyTurnState : MonoBehaviour
+public class EnemyTurnState : BaseState
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void OnStateEnter()
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnStateExit()
     {
-        
     }
+
+    public override void OnStateUpdate()
+    {
+        //Let the computer handle movement and strategies for all enemies in a list of unfrozen enemies.
+
+
+
+        //At the end, end the turn and let the player move again
+        owner.SwitchState(typeof(PlayerTurnStartState));
+    }
+
 }

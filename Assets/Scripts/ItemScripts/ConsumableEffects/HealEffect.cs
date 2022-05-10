@@ -6,8 +6,9 @@ using UnityEngine;
 public class HealEffect : ConsumableEffect
 {
     [SerializeField] private int healAmount;
-    public override void OnConsumableUse()
+    public override void OnConsumableUse(Unit targetUnit)
     {
+        targetUnit.ChangeHealth(healAmount);
         //Heal by healAmount
     }
 }

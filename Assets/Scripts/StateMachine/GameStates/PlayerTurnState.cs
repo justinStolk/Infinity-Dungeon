@@ -24,11 +24,11 @@ public class PlayerTurnState : BaseState
     }
     public override void OnStateEnter()
     {
-        foreach (Navigator pc in playerCharacters)
-        {
-            pc.UnFreezeUnit();
-            //Unfreeze all characters, so they can move again.
-        }
+        //foreach (Navigator pc in playerCharacters)
+        //{
+        //    pc.UnFreezeUnit();
+           //Unfreeze all characters, so they can move again.
+        //}
     }
 
     public override void OnStateUpdate()
@@ -38,7 +38,10 @@ public class PlayerTurnState : BaseState
         cursor.transform.position = new Vector3(roundedMousePosition.x, roundedMousePosition.y, 0);
         HandleInput();
         HandleCamMovement();
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            owner.SwitchState(typeof(EnemyTurnStartState));
+        }
     }
     public override void OnStateExit()
     {

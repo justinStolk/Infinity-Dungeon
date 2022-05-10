@@ -5,7 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Consumable", menuName = "Infinity Dungeon/Items/Consumable")]
 public class Consumable : Item
 {
+    public Unit TargetUnit;
     [SerializeField] private ConsumableEffect[] consumableEffects;
+    
 
     public override void OnItemUsed()
     {
@@ -16,7 +18,7 @@ public class Consumable : Item
     {
         foreach(ConsumableEffect effect in consumableEffects)
         {
-            effect.OnConsumableUse();
+            effect.OnConsumableUse(TargetUnit);
         }
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DungeonData
 {
+    public int CurrentFloor = 1;
+
     public Dictionary<Vector2Int, Navigator> units = new();
     public Dictionary<Vector2Int, Node> nodes = new();
     public Dictionary<Vector2Int, GameObject> moveRangeTiles = new();
@@ -18,6 +20,7 @@ public class DungeonData
 
 public class DataConverter
 {
+    public int CurrentFloor;
     public List<Chamber> chambers = new();
     public List<Node> nodes = new();
    // public List<Navigator> units = new();
@@ -27,6 +30,7 @@ public class DataConverter
 
     public void ConvertDungeonData(DungeonData dataToConvert)
     {
+        CurrentFloor = dataToConvert.CurrentFloor;
         tiles = dataToConvert.tiles;
         doors = dataToConvert.doors;
         corridors = dataToConvert.corridors;
@@ -48,6 +52,7 @@ public class DataConverter
         data.tiles = tiles;
         data.doors = doors;
         data.corridors = corridors;
+        data.CurrentFloor = CurrentFloor;
 
         foreach(Chamber c in chambers)
         {

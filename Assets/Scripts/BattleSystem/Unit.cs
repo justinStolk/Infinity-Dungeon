@@ -3,14 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour
+public class Unit : MonoBehaviour, IAttacker, IDamageable, IExperience
 {
 
     [Header("Stats")]
     [SerializeField] private new string name;
+    [Min(1)]
     [SerializeField] private int level;
     [SerializeField] private int currentExperience;
-    [SerializeField] private int requiredExperience;
+    [SerializeField] private int maxHitPoints;
     [SerializeField] private int hitPoints;
     [SerializeField] private int strength;
     [SerializeField] private int defense;
@@ -19,10 +20,24 @@ public class Unit : MonoBehaviour
     [SerializeField] private int speed;
     [SerializeField] private int luck;
 
+    [Header("Growth Modifiers")]
+    [SerializeField] private int hitPointGrowthModifier;
+    [SerializeField] private int strengthGrowthModifier;
+    [SerializeField] private int defenseGrowthModifier;
+    [SerializeField] private int magicGrowthModifier;
+    [SerializeField] private int resistanceGrowthModifier;
+    [SerializeField] private int speedGrowthModifier;
+    [SerializeField] private int luckGrowthModifier;
+
+    [SerializeField] private CharacterClass myClass;
+
+    private int requiredExperience;
+
     public string Name { get { return name; } private set { name = value; } }
     public int Level { get { return level; } private set { level = value; } }
-    public int Exp { get { return currentExperience; } private set { currentExperience = value; } }
-    public int ExpNeeded { get { return requiredExperience; } private set { requiredExperience = value; } }
+    public int CurrentExperience { get { return currentExperience; } private set { currentExperience = value; } }
+    public int RequiredExperience { get { return requiredExperience; } private set { requiredExperience = value; } }
+    public int MaxHitPoints { get { return maxHitPoints; } private set { maxHitPoints = value; } }
     public int HitPoints { get { return hitPoints; } private set { hitPoints = value; } }
     public int Strength { get { return strength; } private set { strength = value; } }
     public int Defense { get { return defense; } private set { defense = value; } }
@@ -46,10 +61,10 @@ public class Unit : MonoBehaviour
 
     public void GetExperience(int experienceEarned)
     {
-        Exp += experienceEarned;
-        if(Exp >= requiredExperience)
+        CurrentExperience += experienceEarned;
+        if(CurrentExperience >= RequiredExperience)
         {
-            Exp -= requiredExperience;
+            CurrentExperience -= RequiredExperience;
             LevelUp();
         }
     
@@ -64,5 +79,24 @@ public class Unit : MonoBehaviour
     private void IncreaseStats()
     {
         
+    }
+
+    public void ChangeHealth(int amount)
+    {
+        HitPoints += amount;
+        if(HitPoints > MaxHitPoints)
+        {
+            HitPoints = MaxHitPoints;
+        }
+        if(HitPoints < 0)
+        {
+            HitPoints = 0;
+        }
+    }
+
+    public void Attack(IDamageable target)
+    {
+        target.ChangeHealth(0);
+        Debug.LogWarning("Not implemented attack function! Review this at some point!");
     }
 }

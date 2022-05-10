@@ -78,7 +78,7 @@ public class AStar
             List<Node> neighbours = GetNeighbours(current);
             foreach(Node neighbour in neighbours)
             {
-                if(GetDistance(nodes[startPosition], neighbour) > range * 10 || closed.Contains(neighbour) || open.Contains(neighbour))
+                if(GetDistance(nodes[startPosition], neighbour) > range * 10 || closed.Contains(neighbour) || open.Contains(neighbour) || neighbour.occupyingElement != null )
                 {
                     continue;
                 }

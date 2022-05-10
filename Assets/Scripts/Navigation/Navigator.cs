@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Navigator : MonoBehaviour, ISelectable
@@ -14,12 +15,12 @@ public class Navigator : MonoBehaviour, ISelectable
     private DungeonBuilder builder;
 
     private List<Vector2Int> rangeTilePositions;
-    // Start is called before the first frame update
-    void Start()
+
+    void Awake()
     {
         builder = FindObjectOfType<DungeonBuilder>();
-        aStar = new AStar(builder.data.nodes, false);    
-        
+        aStar = new AStar(builder.data.nodes, false);
+        EventSystem.Subscribe(EventType.ON_PLAYER_TURN_STARTED, UnFreezeUnit);
     }
 
     // Update is called once per frame
@@ -29,9 +30,6 @@ public class Navigator : MonoBehaviour, ISelectable
         {
             if (transform.position != Vector2IntToVector3(path[0]))
             {
-                //float targetAngle = Mathf.Atan2(transform.position.x - path[0].x, transform.position.y - path[0].y);
-                //targetAngle *= Mathf.Rad2Deg;
-                //transform.rotation = Quaternion.Euler(0, targetAngle - 180, 0);
                 transform.position = Vector3.MoveTowards(transform.position, Vector2IntToVector3(path[0]), moveSpeed * Time.deltaTime);
             }
             else
@@ -39,6 +37,21 @@ public class Navigator : MonoBehaviour, ISelectable
                 path.RemoveAt(0);
             }
         }
+    }
+    public Task MoveToTarget()
+    {
+        while(path != null && path.Count > 0)
+        {
+            if (transform.position != Vector2IntToVector3(path[0]))
+            {
+                transform.position = Vector3.MoveTowards(transform.position, Vector2IntToVector3(path[0]), moveSpeed * Time.deltaTime);
+            }
+            else
+            {
+                path.RemoveAt(0);
+            }
+        }
+        return Task.CompletedTask;
     }
     public void OnSelected()
     {
