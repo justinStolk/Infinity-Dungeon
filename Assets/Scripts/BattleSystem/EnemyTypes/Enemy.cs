@@ -17,6 +17,9 @@ public abstract class Enemy : MonoBehaviour, IAttacker, IDamageable
     [SerializeField] protected int luck;
     [Min(1)]
     [SerializeField] protected Vector2Int floorSpawnRange = Vector2Int.one;
+
+    protected CombatStrategy strategy;
+
     public int MaxHitPoints { get { return maxHitPoints; } protected set { maxHitPoints = value; } }
     public int HitPoints { get { return hitPoints; } protected set { hitPoints = value; } }
     public int Strength { get { return strength; } protected set { strength = value; } }
@@ -26,8 +29,14 @@ public abstract class Enemy : MonoBehaviour, IAttacker, IDamageable
     public int Speed { get { return speed; } protected set { speed = value; } }
     public int Luck { get { return luck; } protected set { luck = value; } }
 
+    [Min(1)]
+    public int lookAheadRange = 1;
     public Vector2Int FloorSpawnRange { get { return floorSpawnRange; } }
 
+    void Start()
+    {
+        strategy = GetComponent<CombatStrategy>();
+    }
 
     public void Attack(IDamageable target)
     {

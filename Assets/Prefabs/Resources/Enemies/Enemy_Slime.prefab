@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 114138111147166948}
   - component: {fileID: 6189448832957560468}
   - component: {fileID: 1070800501446932402}
+  - component: {fileID: 7550486347492010529}
   m_Layer: 0
   m_Name: Enemy_Slime
   m_TagString: Untagged
@@ -154,3 +155,15 @@ MonoBehaviour:
   speed: 2
   luck: 0
   floorSpawnRange: {x: 1, y: 5}
+--- !u!114 &7550486347492010529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569176286402800990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 087d5faa47e6c654c8dec3a45535bd21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
