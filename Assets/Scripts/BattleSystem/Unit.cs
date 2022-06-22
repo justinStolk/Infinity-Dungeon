@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour, IAttacker, IDamageable, IExperience
+public class Unit : MonoBehaviour, IStats, IExperience
 {
 
     [Header("Stats")]
@@ -30,6 +29,7 @@ public class Unit : MonoBehaviour, IAttacker, IDamageable, IExperience
     [SerializeField] private int luckGrowthModifier;
 
     [SerializeField] private CharacterClass myClass;
+    [SerializeField] private EquipmentSlot[] equipmentSlots;
 
     private int requiredExperience;
 
@@ -46,11 +46,13 @@ public class Unit : MonoBehaviour, IAttacker, IDamageable, IExperience
     public int Speed { get { return speed; } private set { speed = value; } }
     public int Luck { get { return luck; } private set { luck = value; } }
 
+    public Weapon EquippedWeapon { get; set; }
+    public EquipmentSlot[] EquipmentSlots { get { return equipmentSlots; } private set { equipmentSlots = value; } }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        LevelUp();
     }
 
     // Update is called once per frame
@@ -78,7 +80,25 @@ public class Unit : MonoBehaviour, IAttacker, IDamageable, IExperience
 
     private void IncreaseStats()
     {
-        
+        int[] oldStats = GetAllStats();
+        int hpIncrease = Random.Range(0, 101) <= myClass.HitPointGrowthModifier + hitPointGrowthModifier ? 1 : 0;
+        maxHitPoints += hpIncrease;
+        HitPoints += hpIncrease;
+        strength += Random.Range(0, 101) <= myClass.StrengthGrowthModifier + strengthGrowthModifier ? 1 : 0;
+        defense += Random.Range(0, 101) <= myClass.DefenseGrowthModifier + defenseGrowthModifier ? 1 : 0; 
+        magic += Random.Range(0, 101) <= myClass.MagicGrowthModifier + magicGrowthModifier ? 1 : 0;
+        resistance += Random.Range(0, 101) <= myClass.ResistanceGrowthModifier + resistanceGrowthModifier ? 1 : 0;
+        speed += Random.Range(0, 101) <= myClass.SpeedGrowthModifier + speedGrowthModifier ? 1 : 0;
+        luck += Random.Range(0, 101) <= myClass.LuckGrowthModifier + luckGrowthModifier ? 1 : 0;
+        foreach (int i in oldStats)
+        {
+            Debug.Log(i);
+        }
+        foreach (int i in GetAllStats())
+        {
+            Debug.Log(i);
+        }
+        UIManager.instance.OnLevelUp(oldStats, GetAllStats());
     }
 
     public void ChangeHealth(int amount)
@@ -98,5 +118,10 @@ public class Unit : MonoBehaviour, IAttacker, IDamageable, IExperience
     {
         target.ChangeHealth(0);
         Debug.LogWarning("Not implemented attack function! Review this at some point!");
+    }
+
+    public int[] GetAllStats()
+    {
+        return new int[8] { maxHitPoints, hitPoints, strength, defense, magic, resistance, speed, luck };
     }
 }

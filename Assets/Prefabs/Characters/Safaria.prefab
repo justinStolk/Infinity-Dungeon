@@ -78,6 +78,11 @@ MonoBehaviour:
   speedGrowthModifier: 0
   luckGrowthModifier: 0
   myClass: {fileID: 11400000, guid: 3c9de7f17880ca445b3ce0ec1b145778, type: 2}
+  equipmentSlots:
+  - equipmentType: 0
+    SlottedEquipment: {fileID: 0}
+  - equipmentType: 1
+    SlottedEquipment: {fileID: 0}
 --- !u!1 &7927932167397420158
 GameObject:
   m_ObjectHideFlags: 0

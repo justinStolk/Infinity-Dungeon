@@ -33,6 +33,8 @@ public abstract class Enemy : MonoBehaviour, IAttacker, IDamageable
     public int lookAheadRange = 1;
     public Vector2Int FloorSpawnRange { get { return floorSpawnRange; } }
 
+    public Weapon EquippedWeapon => throw new System.NotImplementedException();
+
     void Start()
     {
         strategy = GetComponent<CombatStrategy>();
@@ -41,6 +43,11 @@ public abstract class Enemy : MonoBehaviour, IAttacker, IDamageable
     public void Attack(IDamageable target)
     {
         throw new System.NotImplementedException();
+    }
+
+    public void FindAndSetTarget()
+    {
+
     }
 
     public void ChangeHealth(int amount)

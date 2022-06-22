@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Weapon", menuName = "Infinity Dungeon/Items/Weapon")]
 public class Weapon : Equipment
 {
-    public enum WeaponType { Sword, Spear, Axe, Bow, Rod }
+    public enum WeaponType { Empty, Sword, Spear, Axe, Bow, Rod, Monster }
     public WeaponType weaponType;
 
     public override void Equip()

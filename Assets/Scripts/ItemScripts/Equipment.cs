@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum EquipmentType { WEAPON, LIGHT_HELMET, HEAVY_HELMET, LIGHT_ARMOR, HEAVY_ARMOR, ACCESSORY }
 public abstract class Equipment : Item
 {
+
+    [SerializeField] protected EquipmentType equipType;
 
     [SerializeField] protected int hitPointBoost;
     [SerializeField] protected int strengthBoost;
@@ -13,6 +17,8 @@ public abstract class Equipment : Item
     [SerializeField] protected int speedBoost;
     [SerializeField] protected int luckBoost;
 
+
+    public EquipmentType equipmentType { get { return equipType; } }
     public int HitPointBoost { get { return hitPointBoost; } }
     public int StrengthBoost { get { return strengthBoost; } }
     public int DefenseBoost { get { return defenseBoost; } }

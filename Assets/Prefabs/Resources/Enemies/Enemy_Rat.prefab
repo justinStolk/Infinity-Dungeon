@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2135585597343286014, guid: eed45a33cd08446c8b88325cf82fc52f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3472c44bc94a78d4880ffab0e94bfbea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -155,6 +155,7 @@ MonoBehaviour:
   speed: 5
   luck: 2
   floorSpawnRange: {x: 1, y: 7}
+  lookAheadRange: 1
 --- !u!114 &2421750069590338657
 MonoBehaviour:
   m_ObjectHideFlags: 0

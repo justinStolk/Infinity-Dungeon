@@ -8,23 +8,14 @@ public interface ISelectable
     public void OnSelected();
 }
 
-public interface IDamageable
+public interface IDamageable : IHealth, IDefense, IResistance, ILuck, ISpeed
 {
-    public int MaxHitPoints { get;  }
-    public int HitPoints { get; }
-    public int Defense { get; }
-    public int Resistance { get; }
-    public int Luck { get; }
-    public int Speed { get; }
     public void ChangeHealth(int amount);
 
 }
 
-public interface IAttacker
+public interface IAttacker : IStrength, IMagic, ILuck
 {
-    public int Strength { get; }
-    public int Magic { get; }
-    public int Luck { get; }
     public void Attack(IDamageable target);
 
 }
@@ -35,5 +26,40 @@ public interface IExperience
     public int RequiredExperience { get; }
     public void GetExperience(int experienceEarned);
 }
+
+public interface IStats : IHealth, IStrength, IDefense, IMagic, IResistance, ISpeed, ILuck
+{
+    public int[] GetAllStats();
+}
+public interface IHealth
+{
+    public int MaxHitPoints { get; }
+    public int HitPoints { get; }
+}
+public interface IStrength
+{
+    public int Strength { get; }
+}
+public interface IDefense
+{
+    public int Defense { get; }
+}
+public interface IMagic
+{
+    public int Magic { get; }
+}
+public interface IResistance
+{
+    public int Resistance { get; }
+}
+public interface ILuck
+{
+    public int Luck { get; }
+}
+public interface ISpeed
+{
+    public int Speed { get; }
+}
+
 
 
